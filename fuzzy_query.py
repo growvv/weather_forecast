@@ -1,4 +1,5 @@
 from ast import walk
+from numpy import place
 import pymysql
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
@@ -78,13 +79,24 @@ def query_climate(time, lat, lon, weather_element):
 
 # def  gen_answer(time, place, weather_element, res):
 #     gen(self)
+def query_weather(time, place, weather_element):
+    place_mock = '西羊'
+    place = query_place(place, limit=1)
+    place_mock = [{'stake': 'jl-14_i', 'name': '武汉大学', 'lat': 43, 'lon': 109}]
+    time_mock = 180
+    weather_element_mock = '温度'
+    res = query_climate(time_mock, place_mock[0]["lat"], place_mock[0]["lon"], weather_element_mock)
+    return res
 
 
 if __name__ == "__main__":
     res = query_place("西羊", limit=1)
     print(res)
 
-    res = query_climate(180, 43, 109, "相对湿度")
+    # res = query_climate(180, 43, 109, "相对湿度")
+    # print(res)
+
+    res = query_weather(180, '武汉大学', "相对湿度")
     print(res)
 
 

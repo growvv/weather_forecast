@@ -1,0 +1,27 @@
+
+### 
+GET http://localhost:8000/ HTTP/1.1
+
+
+### 测试实体识别
+GET http://172.16.2.35:38868/api/recognize?question=6月25号要去松山大桥，24号的大华岭隧道温度湿度怎么样？ HTTP/1.1
+
+
+### 测试问答
+POST http://localhost:8000/place HTTP/1.1
+Content-Type: application/json
+
+{
+    "name" : "羊",
+    "limit" : 2
+}
+
+###
+POST http://localhost:8000/weather  HTTP/1.1
+Content-Type: application/json
+
+  "time": 180,
+  "lat": 40,
+  "lon": 120,
+  "weather_element": "precipitations"
+}

@@ -1,0 +1,1 @@
+小助手告诉您，{time},{location}的{weather}为{result}。
